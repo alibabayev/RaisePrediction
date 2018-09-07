@@ -3,7 +3,7 @@ import matplotlib as plt
 import seaborn as sns
 import matplotlib.pyplot as mp
 
-dataset = pd.read_csv("/home/stajyer/Desktop/RaisePrediction/HREmployeeDataset.csv")
+dataset = pd.read_csv("data/HREmployeeDataset.csv")
 sns.set_palette("Reds")
 target = dataset.PercentSalaryHike
 
