@@ -78,7 +78,7 @@ for f in range(X.shape[1]):
 X_train, X_test, y_train, y_test = train_test_split(
          X, y, test_size=0.35, random_state=0)
 
- 
+
 sc = StandardScaler()
 
 sc.fit(X_train)
