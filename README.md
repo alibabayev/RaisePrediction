@@ -1,4 +1,5 @@
 # RaisePrediction
+----A more detailed report is available in the Documents.
 
 Introduction
 
@@ -36,39 +37,73 @@ PercentSalaryHike, will be discarded for the sake of this project since Percent 
 target value and Attrition is a set of experimental values. Attributes can be listed as the following:
 
 • Age: Age of the employee
+
 • Attrition: Did the employee decide to leave the company?
+
 • BusinessTravel: How often does the employee travel for the company?
+
 • DailyRate: Daily salary level of the employee
+
 • Department: Department of the company that the employee is currently working in
+
 • DistanceFromHome: How far is the home of the employee from the company?
+
 • Education: Level of education of the employee based o graduate schools
+
 • EducationField: Graduation Department
+
 • EmployeeCount: How many employees does the employee work with?
+
 • EmployeeNumber: ID of the employee
+
 • EnvironmentSatisfaction: How satisfied is the employee from the company environment?
+
 • Gender: Gender of the employee
+
 • HourlyRate: Monthly salary level of the employee
+
 • JobInvolvement: How involved is the employee with his/her job?
+
 • JobLevel: Level of the job the emloyee is assigned
+
 • JobRole: What is the employee working as within the job?
+
 • JobSatisfaction: How satisfied is the employee with his/her job?
+
 • MaritalStatus: Is the employee married?
+
 • MonthlyIncome: Monthly salary of the employee
+
 • MonthlyRate: Monthly salary rate of the employee
+
 • NumCompaniesWorked: How many companies did the employee work with in the past?
+
 • Over18: Is the employee over 18 years old?
+
 • OverTime: Does the employee work overtime?
+
 • PercentSalaryHike: Percentage of raise that the employee will get
+
 • PerformanceRating: How does the employee perform?
+
 • RelationshipSatisfaction: Is the employee satisfied with his/her relationship?
+
 • StandardHours: Standard working hours of the employee
+
 • StockOptionLevel: Stock options of the employee
+
 • TotalWorkingYears: Experience of the employee
+
 • TrainingTimesLastYear: How many times was the employee trained last year?
+
 • WorkLifeBalance: Time spent between work and outside?
+
 • YearsAtCompany: How long has the employee been working in the company?
+
 • YearsInCurrentRole: How long has the employee been working in the current position?
+
 • YearsSinceLastPromotion: How many years passed since the last promotion of the employee
+
 • YearsWithCurrManager: How long has the employee been working with the current
 manager?
 
