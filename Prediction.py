@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_error
 import os
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier,AdaBoostClassifier
 from sklearn.linear_model import LogisticRegression, Lasso
 from sklearn.linear_model import RidgeClassifier
 from xgboost import XGBRegressor
@@ -15,23 +15,12 @@ from sklearn.model_selection import cross_val_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC
+from sklearn import preprocessing
 
 df = pd.read_csv('data/dataAddedLMHFinal.csv')
 df.head()
 df.isnull().sum()
 
-df['TotalQ'] = df['LevelOfHike']
-df['TotalQ'].loc[df.TotalQ == 'L'] = 0.0
-df['TotalQ'].loc[df.TotalQ == 'M'] = 1.0
-df['TotalQ'].loc[df.TotalQ == 'H'] = 2.0
-
-#Selecting relative features
-X = df.ix[:,[0,1,2,3,4,6,7,9,10,12,13,14,15,16,18,25,30,33,34,35]]
-y = np.array(df['TotalQ'])
-
-X = pd.get_dummies(X)
-
-X.shape
 
 df['Totall'] = df['LevelOfHike']
 df['Totall'].loc[df.Totall == 'L'] = 0.0
@@ -40,20 +29,19 @@ df['Totall'].loc[df.Totall == 'H'] = 2.0
 
 #continuous_subset = df.ix[:,[0,1,2,3,4,6,7,10,12,13,14,15,20,22,25,29,30,31,32,33,34,35]]
 
-X = df.ix[:,[0,1,2,3,4,6,7,10,12,13,14,15,16,18,25,28,33,34,35]]
+X = df.ix[:,[0,1,2,3,4,6,7,10,12,13,14,15,16,18,20,25,28,31,32,33,34,35]]
 y = np.array(df['Totall'])
 
 
 X = pd.get_dummies(X)
 
-
 X.shape
 
-names = ['LogisticRegression','RandomForestClassifier','SVC',"RidgeClassifier"]
+names = ['LogisticRegression','RandomForestClassifier','SVC',"RidgeClassifier","AdaBoostClassifier","Perceptron"]
 
 clf_list = [LogisticRegression(),
             RandomForestClassifier(),
-            SVC(),RidgeClassifier()]
+            SVC(),RidgeClassifier(),AdaBoostClassifier(),Perceptron()]
 
 print("Cross-Val-Scores")
 
@@ -82,6 +70,15 @@ y_pred = logistic.predict(X_test_std)
 print('Accuracy Logistic: %.2f' % accuracy_score(y_test, y_pred))
 print(classification_report(y_test, y_pred))
 
+print()
+print()
+print()
+
+print("Predictions", y_pred)
+print("Real",y)
+
+
+
 #RANDOM FOREST CLASSIFIER
 random_for = RandomForestClassifier()
 random_for.fit(X, y)
@@ -106,4 +103,10 @@ y_pred = ridge.predict(X_test_std)
 print('Accuracy Ridge: %.2f' % accuracy_score(y_test, y_pred))
 print(classification_report(y_test, y_pred))
 
+#ADABOOST
+ada = AdaBoostClassifier()
+ada.fit(X, y)
+y_pred = ada.predict(X_test_std)
 
+print('Accuracy Ada: %.2f' % accuracy_score(y_test, y_pred))
+print(classification_report(y_test, y_pred))
